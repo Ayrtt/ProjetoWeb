@@ -1,6 +1,5 @@
 package com.concessionaria.anunciante;
 
-
 import java.util.List;
 import com.concessionaria.carro.Carro;
 
@@ -10,9 +9,9 @@ import lombok.NoArgsConstructor;
 import lombok.AllArgsConstructor;
 
 import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.persistence.Entity;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 
@@ -37,7 +36,6 @@ public class Anunciante {
   @OneToMany(mappedBy = "anunciante")
   private List<Carro> carros;
 
-
   public Anunciante(DadosCadastroAnunciante dados){
     this.nome = dados.nome();
     this.email = dados.email();
@@ -46,6 +44,10 @@ public class Anunciante {
     this.rua = dados.rua();
     this.numero = dados.numero();
     this.bairro = dados.bairro();
+  }
+
+  public List<Carro> getCarros(){
+    return carros;
   }
 
   public String getNome(){
