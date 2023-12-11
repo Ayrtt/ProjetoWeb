@@ -36,7 +36,7 @@ public class AnuncianteController {
     return repository.findAll(paginacao).map(DadosListagemAnunciante::new);
   }
 
-  @GetMapping("/comcarros")
+  @GetMapping("/anunciantescomcarros")
   public ResponseEntity<List<DadosListagemAnunciante>> obterAnunciantesComCarros() {
     List<DadosListagemAnunciante> anunciantesDTO = repository.findAll()
                           .stream().map(DadosListagemAnunciante::new)
