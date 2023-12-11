@@ -23,6 +23,8 @@ import jakarta.persistence.GenerationType;
 public class Carro {
 
   @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+  private Long id;
+  
   private String marca;
   private String modelo;
   private int ano;
