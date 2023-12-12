@@ -24,7 +24,7 @@ import jakarta.persistence.GenerationType;
 
 public class Anunciante {
   @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
-  private Long id;
+  private int id;
   
   private String nome;
   private String email;
@@ -39,6 +39,7 @@ public class Anunciante {
   private List<Carro> carros;
 
   public Anunciante(DadosCadastroAnunciante dados){
+    this.id = dados.id();
     this.nome = dados.nome();
     this.email = dados.email();
     this.cpf = dados.cpf();
@@ -71,5 +72,9 @@ public class Anunciante {
 
   public String getBairro(){
     return bairro;
+  }
+
+  public int getId(){
+    return id;
   }
 }

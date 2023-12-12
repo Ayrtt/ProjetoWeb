@@ -3,13 +3,14 @@ package com.concessionaria.controllers;
 import com.concessionaria.carro.*;
 import jakarta.validation.Valid;
 import jakarta.transaction.Transactional;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 
 @RestController
@@ -27,7 +28,7 @@ public class CarroController {
   }
 
   @GetMapping
-  public Page<DadosListagemCarro> listar(Pageable paginacao) {
-    return repository.findAll(paginacao).map(DadosListagemCarro::new);
+  public List<Carro> listar() {
+    return repository.findAll();
   }
 }

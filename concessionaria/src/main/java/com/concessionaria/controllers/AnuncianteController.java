@@ -9,8 +9,6 @@ import java.util.stream.Collectors;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -31,13 +29,8 @@ public class AnuncianteController {
     repository.save(new Anunciante(dados));
   }
 
-  /*@GetMapping
-  public Page<DadosListagemAnunciante> listar(Pageable paginacao) {
-    return repository.findAll(paginacao).map(DadosListagemAnunciante::new);
-  }*/
-
-   @GetMapping
-  public List<Anunciante> listarCompleto() {
+  @GetMapping
+  public List<Anunciante> listar() {
     return repository.findAll();
   }
 

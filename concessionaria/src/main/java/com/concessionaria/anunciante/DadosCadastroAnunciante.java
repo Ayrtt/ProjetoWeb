@@ -6,6 +6,7 @@ import jakarta.validation.constraints.NotNull;
 
 public record DadosCadastroAnunciante (
 
+  int id,
   @NotBlank String nome,
   @NotBlank @Email String email,
   @NotBlank String cpf,

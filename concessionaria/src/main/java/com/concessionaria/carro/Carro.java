@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 import lombok.AllArgsConstructor;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.JoinColumn;
@@ -23,12 +24,14 @@ import jakarta.persistence.GenerationType;
 public class Carro {
 
   @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
-  private Long id;
+  private int id;
   
   private String marca;
   private String modelo;
   private int ano;
   private double preco;
+  @Column(insertable=false, updatable=false)
+  private int id_anunciante;
 
   @ManyToOne
   @JoinColumn(name="id_anunciante")
@@ -39,6 +42,7 @@ public class Carro {
     this.modelo = dados.modelo();
     this.ano = dados.ano();
     this.preco = dados.preco();
+    this.id_anunciante = anunciante.getId();
   }
 
   public String getMarca(){
@@ -55,5 +59,9 @@ public class Carro {
 
   public double getPreco(){
     return preco;
+  }
+
+  public int getIdAnunciante(){
+    return anunciante.getId();
   }
 }
