@@ -56,5 +56,4 @@ public class Carro {
   public double getPreco(){
     return preco;
   }
-
 }

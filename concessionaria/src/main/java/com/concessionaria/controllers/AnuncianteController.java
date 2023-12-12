@@ -31,9 +31,14 @@ public class AnuncianteController {
     repository.save(new Anunciante(dados));
   }
 
-  @GetMapping
+  /*@GetMapping
   public Page<DadosListagemAnunciante> listar(Pageable paginacao) {
     return repository.findAll(paginacao).map(DadosListagemAnunciante::new);
+  }*/
+
+   @GetMapping
+  public List<Anunciante> listarCompleto() {
+    return repository.findAll();
   }
 
   @GetMapping("/anunciantescomcarros")
