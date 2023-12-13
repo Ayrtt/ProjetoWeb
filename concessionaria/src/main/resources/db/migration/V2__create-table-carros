@@ -3,6 +3,7 @@ create table carros(
   id bigint not null auto_increment primary key,
   marca varchar(100) not null,
   modelo varchar(100) not null,
+  foto varchar(255) not null,
   ano int not null,
   preco float not null,
   id_anunciante bigint not null,

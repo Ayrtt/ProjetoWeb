@@ -7,7 +7,9 @@ public record DadosCadastroCarro(
   
   @NotBlank String marca,
   @NotBlank String modelo,
+  @NotBlank String foto,
   @NotNull int ano, 
-  @NotNull double preco
+  @NotNull double preco,
+  @NotNull Integer id_anunciante
   
 ) {}
