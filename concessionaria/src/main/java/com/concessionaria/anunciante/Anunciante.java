@@ -1,31 +1,29 @@
 package com.concessionaria.anunciante;
 
 import java.util.List;
+
 import com.concessionaria.carro.Carro;
 
-import lombok.Getter;
-import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
-import lombok.AllArgsConstructor;
-
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
 import jakarta.persistence.Entity;
-import jakarta.persistence.OneToMany;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.Table;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
-@Table(name="anunciantes")
-@Entity(name = "Anunciante")
-@Getter
+@Entity
+@Table(name = "anunciantes")
 @NoArgsConstructor
 @AllArgsConstructor
-@EqualsAndHashCode(of = "id")
-
+@Data
 public class Anunciante {
-  @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+  @Id
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
   private int id;
-  
+
   private String nome;
   private String email;
   private String cpf;
@@ -38,8 +36,7 @@ public class Anunciante {
   @OneToMany(mappedBy = "anunciante")
   private List<Carro> carros;
 
-  public Anunciante(DadosCadastroAnunciante dados){
-    this.id = dados.id();
+  public Anunciante(DadosCadastroAnunciante dados) {
     this.nome = dados.nome();
     this.email = dados.email();
     this.cpf = dados.cpf();
@@ -50,31 +47,31 @@ public class Anunciante {
     this.funcao = dados.funcao();
   }
 
-  public List<Carro> getCarros(){
+  public List<Carro> getCarros() {
     return carros;
   }
 
-  public String getNome(){
+  public String getNome() {
     return nome;
   }
 
-  public String getTelefone(){
+  public String getTelefone() {
     return telefone;
   }
 
-  public String getRua(){
+  public String getRua() {
     return rua;
   }
 
-  public String getNumero(){
+  public String getNumero() {
     return numero;
   }
 
-  public String getBairro(){
+  public String getBairro() {
     return bairro;
   }
 
-  public int getId(){
+  public int getId() {
     return id;
   }
 }
