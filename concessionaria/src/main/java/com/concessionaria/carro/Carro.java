@@ -1,6 +1,7 @@
 package com.concessionaria.carro;
 
 import com.concessionaria.anunciante.Anunciante;
+<<<<<<< HEAD
 import com.fasterxml.jackson.annotation.JsonBackReference;
 
 import lombok.Getter;
@@ -14,21 +15,31 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.JoinColumn;
+=======
+
+import jakarta.persistence.Entity;
+>>>>>>> origin/main
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.Table;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
-@Table(name="carros")
-@Entity(name = "Carro")
-@Getter
+@Entity
+@Table(name = "carros")
 @NoArgsConstructor
 @AllArgsConstructor
-@EqualsAndHashCode(of = "id")
-
+@Data
 public class Carro {
 
-  @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+  @Id
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
   private int id;
-  
+
   private String marca;
   private String modelo;
   private String foto;
@@ -36,8 +47,12 @@ public class Carro {
   private double preco;
 
   @ManyToOne
+<<<<<<< HEAD
   @JoinColumn(name="id_anunciante")
   @JsonBackReference
+=======
+  @JoinColumn(name = "anunciante_id")
+>>>>>>> origin/main
   private Anunciante anunciante;
 
   public Carro(DadosCadastroCarro dados) {
@@ -48,11 +63,11 @@ public class Carro {
     this.preco = dados.preco();
   }
 
-  public String getMarca(){
+  public String getMarca() {
     return marca;
   }
 
-  public String getModelo(){
+  public String getModelo() {
     return modelo;
   }
   
@@ -60,14 +75,15 @@ public class Carro {
     return foto;
   }
 
-  public int getAno(){
+  public int getAno() {
     return ano;
   }
 
-  public double getPreco(){
+  public double getPreco() {
     return preco;
   }
 
+<<<<<<< HEAD
   public void setMarca(String marca){
     this.marca = marca;
   }
@@ -97,6 +113,9 @@ public class Carro {
   }
 
   public int getIdAnunciante(){
+=======
+  public int getIdAnunciante() {
+>>>>>>> origin/main
     return anunciante.getId();
   }
 }
