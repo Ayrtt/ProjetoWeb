@@ -9,6 +9,7 @@ public record DadosCadastroAnunciante (
   int id,
   @NotBlank String nome,
   @NotBlank @Email String email,
+  @NotBlank String senha,
   @NotBlank String cpf,
   @NotBlank String telefone,
   @NotBlank String rua,
